@@ -1,0 +1,17 @@
+description: Portus is an authorization server and a user interface for the
+  next generation of the Docker registry.
+engine: gotpl
+home: http://port.us.org/
+icon: http://port.us.org/build/images/favicon/favicon.ico
+keywords:
+- docker-registry
+- portus
+- suse
+maintainers:
+- email: saurabh.surana@suse.com
+  name: Saurabh Surana
+name: portus
+sources:
+- https://github.com/saurabhsurana/helm-charts
+- https://github.com/SUSE/Portus
+version: 0.2.0

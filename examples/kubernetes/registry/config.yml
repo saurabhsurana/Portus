@@ -2,7 +2,7 @@ version: 0.1
 logLevel: debug
 storage:
   filesystem:
-    rootdirectory: /registry-data
+    rootdirectory: /mnt
   delete:
     enabled: true
 http:
@@ -14,14 +14,14 @@ http:
     key: /certificates/portus.key
 auth:
   token:
-    realm: https://portus.mssola.cat/v2/token
-    service: registry.mssola.cat
-    issuer: portus.mssola.cat
+    realm: https://portus.test.ssurana.com/v2/token
+    service: registry.test.ssurana.com
+    issuer: portus.test.ssurana.com
     rootcertbundle: /certificates/portus.crt
 notifications:
   endpoints:
     - name: portus
-      url: https://portus.mssola.cat/v2/webhooks/events
+      url: https://portus.test.ssurana.com/v2/webhooks/events
       timeout: 500ms
       threshold: 5
       backoff: 1s

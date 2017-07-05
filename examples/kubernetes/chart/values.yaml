@@ -1,0 +1,25 @@
+images:
+  web: suranasaurabh/portus_web
+  registry: suranasaurabh/portus_registry
+imageTag:
+  web: latest
+  registry: latest
+
+imagePullPolicy: IfNotPresent
+
+## Persist data to a persitent volume
+persistence:
+  enabled: true
+  ## If defined, volume.beta.kubernetes.io/storage-class: <storageClass>
+  ## Default: volume.alpha.kubernetes.io/storage-class: default
+  ##
+  # storageClass:
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
