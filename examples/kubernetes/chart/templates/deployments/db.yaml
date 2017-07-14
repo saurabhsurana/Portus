@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mariadb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mariadb
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: mariadb:10
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: MYSQL_USER
+          value: portus
+        - name: MYSQL_DATABASE
+          value: portus_production
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secrets
+              key: root
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secrets
+              key: password
+        ports:
+        - containerPort: 3306
